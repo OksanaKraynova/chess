@@ -177,6 +177,13 @@ img {
     gap: 3px;
 }
 
+.header-image {
+    margin-right: 6px;
+    height: 31.8px;
+    width: 90px;
+    background: url(./img/horse.svg);
+}
+
 .flex {
     display: flex;
     gap: 14px;
@@ -215,6 +222,7 @@ img {
     font-weight: 400;
     line-height: 130%;
     text-align: center;
+    margin-left: -12px;
 }
 
 .main-btns {
@@ -224,12 +232,24 @@ img {
     text-align: center;
 }
 
+@keyframes runtext {
+    0% {
+        transform: translateX(2335px);
+    }
+
+    100% {
+        transform: translateX(-2335px);
+    }
+
+}
+
 .running {
     background-color: #F54932;
     height: 60px;
     display: flex;
     align-items: center;
     color: #fff;
+    overflow: hidden;
 }
 
 .running-wrapper {
@@ -240,43 +260,73 @@ img {
     font-size: 22px;
     line-height: 110%;
     text-transform: uppercase;
+    animation: runtext 20s linear infinite;
+    flex-wrap: nowrap;
+}
+
+.running-item {
+    white-space: nowrap;
+    flex-grow: 1;
 }
 
 .support {
-    padding: 80px 0px 165px 0px;
+    padding: 80px 10px 153px 10px;
 }
 
 .support-row {
     display: flex;
-    gap: 30px;
+    gap: 14px;
     margin-bottom: 36px;
+    justify-content: center;
+}
+
+.support-row:nth-child(2) {
+    padding-right: 46px;
+}
+
+.support-row:first-child {
+    gap: 65px;
 }
 
 .support-text.hide {
     display: none;
 }
 
+
 .support-text {
     font-family: 'Merriweather';
     font-size: 36px;
-    font-weight: 700;
     line-height: 135%;
     text-transform: uppercase;
     margin-top: 30px;
+    max-width: 764px;
 }
 
+.support-subtext {
+    max-width: 684px;
+}
+
+.support-text .red {
+    font-weight: 700;
+}
+
+
 .big-image {
-    flex: 0 0 40%;
+    /* display: flex;
+    justify-content: flex-end; */
 }
 
 .big-image img {
+
     max-width: 100%;
+    max-height: 100%;
 }
 
 .support-column {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    max-height: 527px;
 }
 
 .support-lin {
@@ -284,9 +334,9 @@ img {
 }
 
 table {
-    margin: 58px 0 47px 0;
+    margin: 60px 0 47px 0;
     border-spacing: 0px;
-  border-collapse: collapse;
+    border-collapse: collapse;
 }
 
 td {
@@ -295,8 +345,8 @@ td {
 
 .table td {
     text-align: left;
-    padding: 15px  0;
- border-top: 2px solid rgb(208, 208, 208);
+    padding: 15px 0;
+    border-top: 2px solid rgb(208, 208, 208);
     position: relative;
 }
 
@@ -305,7 +355,7 @@ td {
 }
 
 .table-desc {
-    width: 43.5%;
+    width: 45%;
     position: relative;
 }
 
@@ -336,6 +386,7 @@ td {
 
 .old {
     position: relative;
+    margin-right: 9px;
 }
 
 .old:before {
@@ -348,22 +399,30 @@ td {
     left: 0;
 }
 
+.stage {
+    overflow: hidden;
+   
+}
+
 .stage-wrapper {
     position: relative;
+
 }
 
 .stage-title {
     max-width: 806px;
-
+    font-weight: 400px;
 }
 
 .stage-title span {
     font-size: 20px;
     max-width: 280px;
     display: inline-block;
+    margin-left: 8px;
     line-height: 120%;
     text-transform: none;
     font-family: 'Golos Text';
+
 }
 
 .stage-cards {
@@ -377,8 +436,9 @@ td {
     background: url(./img/big.png);
     padding: 20px;
     display: flex;
-    gap: 14px;
-
+    gap: 15px;
+    font-weight: 500;
+    min-height: 112px;
 }
 
 .card:nth-child(1) {
@@ -479,7 +539,7 @@ td {
 .members-arrows {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 15px;
 }
 
 .members-btn {
@@ -501,10 +561,15 @@ td {
     transform: rotate(180deg);
 }
 
+.members-num {
+    margin-top: -5px;
+}
+
 .cards-wrapper {
     overflow: hidden;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
+    /* margin-right: 30px; */
 }
 
 .members-cards {
@@ -515,11 +580,10 @@ td {
 }
 
 
-
-
 .member-card {
-    width: 394px;
-    flex: 0 0 394px;
+    padding: 0 5px;
+    width: 404px;
+    flex: 0 0 404px;
 }
 
 .member-card,
@@ -579,7 +643,7 @@ td {
     display: flex;
     padding-top: 40px;
     font-size: 16px;
-    line-height: 1.3;
+    line-height: 1.2;
 }
 
 
@@ -589,6 +653,9 @@ td {
         padding-right: 15px;
     }
 
+    .support-column {
+        max-height: none;
+    }
 }
 
 @media(max-width: 1222px) {
@@ -619,6 +686,19 @@ td {
         border: none;
     }
 
+    .support-row {
+        flex-direction: column;
+
+    }
+
+    .support-row:nth-child(2) {
+        padding-right: 0px;
+    }
+
+    .support-row:first-child {
+        gap: 28px;
+    }
+
     .support {
         padding-bottom: 30px;
     }
@@ -633,6 +713,7 @@ td {
     }
 
     .support-text {
+        font-weight: 400;
         font-size: calc(28px + (36 - 28) * ((100vw - 768px) / (1222 - 768)));
     }
 
@@ -640,6 +721,33 @@ td {
         flex: 0 0 335px;
         height: 315px;
         max-height: 100%;
+    }
+
+
+    .support-text.hide {
+        display: inline-block;
+        margin: -10px 0 0 0;
+    }
+
+    .support-subtext {
+        margin-top: 10px;
+    }
+
+    .support-text .show {
+        display: none;
+    }
+
+    .support-image {
+        flex: 0 0 215px;
+
+    }
+
+    .big-image {
+        justify-content: center;
+    }
+
+    .support-image img {
+        max-width: 100%;
     }
 
     .support-image img {
@@ -650,7 +758,7 @@ td {
 
 @media (max-width: 878px) {
     .stage {
-        padding: 78px 0px 0px 5px;
+        padding: 82px 0px 0px 5px;
         overflow: hidden;
     }
 
@@ -661,10 +769,20 @@ td {
         position: relative;
     }
 
+    .stage-title {
+        line-height: 1.1;
+    }
+
+    .stage-title span {
+        margin: 12px 0 0 0;
+        font-size: 18px;
+        line-height: 1.2;
+    }
+
     .stage-cards {
         display: flex;
         position: relative;
-        margin-top: 140px;
+        margin-top: 145px;
 
     }
 
@@ -674,15 +792,16 @@ td {
 
     .plane {
         display: block;
-        left: 10px;
-        top: 10px;
+        left: 15px;
+        top: 20px;
         width: 100%;
     }
 
     .card {
         flex: 0 0 100%;
         font-size: 18px;
-        padding: 40px 20px;
+        padding: 74px 20px 20px 20px;
+        gap: 14px;
         height: 300px;
         justify-content: center;
 
@@ -702,12 +821,11 @@ td {
 
     .flex-column {
         flex-direction: column;
+        gap: 0;
     }
 }
 
 @media (max-width: 768px) {
-
-
     .main-title {
         font-size: 36px;
     }
@@ -731,8 +849,16 @@ td {
         top: -10px;
     }
 
+    .header-image {
+        margin-right: 4px;
+        height: 27px;
+        width: 79px;
+        background: url(./img/horse1.svg);
+    }
+
     .main-text {
         text-align: left;
+        padding-left: 13px;
     }
 
     .header-logo {
@@ -774,35 +900,8 @@ td {
         font-size: 28px;
     }
 
-    .support-row {
-        flex-direction: column;
-    }
-
     .support {
-        padding: 20px 20px 0px 20px;
-    }
-
-    .support-text {
-        font-weight: 400;
-    }
-
-    .support-text.hide {
-        display: inline-block;
-        margin: -10px 0 0 0;
-    }
-  .support-subtext{
-    margin-top: 22px;
-  }
-    .support-text .show {
-        display: none;
-    }
-
-    .support-image {
-        flex: 0 0 215px;
-    }
-
-    .support-image img {
-        max-width: 100%;
+        padding: 22px 20px 0px 18px;
     }
 
     tr {
@@ -821,11 +920,11 @@ td {
     }
 
     .table {
-        margin: 40px 0 36px 0;
+        margin: 44px 0 36px 0;
     }
 
     td {
-        padding: 12px;
+        padding: 14.2px 0 !important;
     }
 
     .table-desc {
@@ -846,30 +945,22 @@ td {
         padding-top: 12px !important;
     }
 
-    .stage-title span {
-        margin-top: 8px;
-        font-size: 18px;
-    }
-
     .support-link {
         font-size: 18px;
     }
 
-
     .stage-cards {
         display: flex;
         position: relative;
-        margin-top: 140px;
     }
 
-
     .footer {
-        padding: 40px 05px;
+        padding: 40px 05px 75px 5px;
         line-height: 1.2;
     }
 
     .members {
-        padding: 116px 0 172px 0;
+        padding: 118px 0 178px 0;
     }
 
     .members-arrows {
@@ -893,7 +984,7 @@ td {
     }
 
     .item-name {
-        margin-top: 10px;
+        margin-top: 4px;
     }
 
     .members-btn {
@@ -914,6 +1005,10 @@ td {
 @media(max-width: 399px) {
     .members-arrows {
         width: 230px;
+    }
+
+    .big-image {
+        flex: 0 1 402px;
     }
 }
 
